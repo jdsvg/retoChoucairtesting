@@ -16,7 +16,7 @@ public class RegisterUserReto implements Task {
                 Click.on(Home.REGISTER),
                 SendKeys.of("John").into(Personal.FIRSNAME),
                 SendKeys.of("Doe").into(Personal.LASTNAME),
-                SendKeys.of("j@doe74.com").into(Personal.EMAIL),
+                SendKeys.of("j@doe7qº4.com").into(Personal.EMAIL),
                 SendKeys.of("April").into(Personal.BIRTHMOUNT),
                 SendKeys.of("22").into(Personal.BIRTHDAY),
                 SendKeys.of("1997").into(Personal.BIRTHYEAR),
