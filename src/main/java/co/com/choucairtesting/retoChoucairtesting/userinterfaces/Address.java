@@ -3,16 +3,17 @@ package co.com.choucairtesting.retoChoucairtesting.userinterfaces;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class Address {
-    //City, Zio & Country
-    public static final Target CITY = Target.the("city").
-            locatedBy("//input[@id=\"city\"]");
+    //Zip & Country
+    //public static final Target CITY = Target.the("city").
+    //        locatedBy("//input[@id=\"city\"]");
     public static final Target ZIP = Target.the("zip").
             locatedBy("//input[@id=\"zip\"]");
-    //Pre-Span
-    public static final Target SPAN = Target.the("span country").
+    //Span-Country
+    public static final Target SPAN_COUNTRY = Target.the("span country").
             locatedBy("//span[@class=\"ui-select-match-text pull-left\"]");
-    public static final Target COUNTRY = Target.the("country").
-            locatedBy("//input[@class=\"form-control ui-select-search ng-pristine ng-valid ng-empty ng-touched\"]");
+    //Span-div (Colombia)
+    public static final Target UL_COUNTRY_COLOMBIA = Target.the("address country Colombia").
+            locatedBy("(//div[@ng-bind-html=\"country.name | highlight: $select.search\"])[52]");
 
 
     //Next Location

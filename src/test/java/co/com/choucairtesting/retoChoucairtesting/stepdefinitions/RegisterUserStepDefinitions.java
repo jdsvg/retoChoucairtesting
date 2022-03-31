@@ -1,4 +1,5 @@
 package co.com.choucairtesting.retoChoucairtesting.stepdefinitions;
+import co.com.choucairtesting.retoChoucairtesting.tasks.RegisterUserReto;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -33,7 +34,7 @@ public class RegisterUserStepDefinitions {
 
     @When("^user create and account filling all fields$")
     public void userCreateAndAccountFillingAllFields() {
-
+        theActorInTheSpotlight().attemptsTo(RegisterUserReto.makeinformation());
     }
 
     @Then("^user sees its username$")
