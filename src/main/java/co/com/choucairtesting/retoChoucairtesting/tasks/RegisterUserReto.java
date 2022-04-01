@@ -3,10 +3,14 @@ package co.com.choucairtesting.retoChoucairtesting.tasks;
 import co.com.choucairtesting.retoChoucairtesting.userinterfaces.*;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Clear;
+import net.serenitybdd.screenplay.actions.ClearBy;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SendKeys;
 import java.util.concurrent.TimeUnit;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+
+
 
 public class RegisterUserReto implements Task {
     @Override
@@ -16,13 +20,14 @@ public class RegisterUserReto implements Task {
                 Click.on(Home.REGISTER),
                 SendKeys.of("John").into(Personal.FIRSNAME),
                 SendKeys.of("Doe").into(Personal.LASTNAME),
-                SendKeys.of("j@doe7qº4.com").into(Personal.EMAIL),
+                SendKeys.of("jdsvg26@villamil.com").into(Personal.EMAIL),
                 SendKeys.of("April").into(Personal.BIRTHMOUNT),
                 SendKeys.of("22").into(Personal.BIRTHDAY),
                 SendKeys.of("1997").into(Personal.BIRTHYEAR),
                 Click.on(Personal.LANGUAGE),
                 Click.on(Personal.NEXTLOCATION),
                 //Seccion Address
+                Clear.field(Address.ZIP),
                 SendKeys.of("111021").into(Address.ZIP),
                 Click.on(Address.SPAN_COUNTRY),
                 Click.on(Address.UL_COUNTRY_COLOMBIA),
@@ -59,7 +64,29 @@ public class RegisterUserReto implements Task {
 
     }
 
-    public static RegisterUserReto makeinformation(){
-        return instrumented(RegisterUserReto.class);
+    public static RegisterUserReto makeinformation(String strFirstName, String strLastName, String strEmail, String strBirthmount, String strBirthday, String strBirthyear, String strZIP, String strPassword){
+        return instrumented(RegisterUserReto.class, strFirstName, strLastName, strEmail, strBirthmount, strBirthday, strBirthyear, strZIP, strPassword);
     }
+
+    public RegisterUserReto(String strFirstName, String strLastName, String strEmail, String strBirthmount, String strBirthday, String strBirthyear, String strZIP, String strPassword) {
+        this.strFirstName = strFirstName;
+        this.strLastName = strLastName;
+        this.strEmail = strEmail;
+        this.strBirthmount = strBirthmount;
+        this.strBirthday = strBirthday;
+        this.strBirthyear = strBirthyear;
+        this.strZIP = strZIP;
+        this.strPassword = strPassword;
+
+    }
+
+    private String strFirstName;
+    private String strLastName;
+    private String strEmail;
+    private String strBirthmount;
+    private String strBirthday;
+    private String strBirthyear;
+    private String strZIP;
+    private String strPassword;
+
 }
